@@ -1,0 +1,773 @@
+Coursera
+Meta
+Front-End Developer Capstone
+Customer table bookings
+Video. Duration: 3 minutes3 min
+Recap: State in React
+Reading. Duration: 15 minutes15 min
+Recap: Forms
+Reading. Duration: 15 minutes15 min
+Exercise: Defining the Bookings page
+Reading. Duration: 30 minutes30 min
+Readiness check: Did you set up a component for viewing the available bookings?
+Practice Assignment. Duration: 3 minutes3 min
+Exercise: Adding table booking state
+Reading. Duration: 30 minutes30 min
+Readiness check: Did you share table booking state across components?
+Practice Assignment. Duration: 3 minutes3 min
+Readiness check: Are your components semantically correct?
+Practice Assignment. Duration: 3 minutes3 min
+Recap: Unit testing
+Reading. Duration: 15 minutes15 min
+Exercise: Adding unit tests
+Reading. Duration: 30 minutes30 min
+Readiness check: Did you set up component unit tests?
+Practice Assignment. Duration: 3 minutes3 min
+Knowledge check: Table booking system
+Practice Assignment. Duration: 15 minutes15 min
+Additional resources
+Reading. Duration: 5 minutes5 min
+Querying a table booking API
+Video. Duration: 3 minutes3 min
+Recap: Querying APIs in React
+Reading. Duration: 15 minutes15 min
+Exercise: Connecting the bookings page to the API
+Reading. Duration: 30 minutes30 min
+Readiness check: Is your bookings page using "live" data?
+Practice Assignment. Duration: 3 minutes3 min
+Exercise: Submitting the new booking page to the API
+Reading. Duration: 30 minutes30 min
+Readiness check: Is the table booking system working end-to-end?
+Practice Assignment. Duration: 3 minutes3 min
+Exercise: Update the unit tests for the API queries
+Reading. Duration: 30 minutes30 min
+Readiness check: Did you set up the API unit tests?
+Practice Assignment. Duration: 3 minutes3 min
+Readiness check: Did you commit your progress to Git?
+Practice Assignment. Duration: 3 minutes3 min
+Knowledge check: Interacting with the API
+Practice Assignment. Duration: 15 minutes15 min
+Additional resources
+Reading. Duration: 5 minutes5 min
+The importance of UX
+Video. Duration: 2 minutes2 min
+Recap: Form validation
+Reading. Duration: 15 minutes15 min
+Exercise: Adding form validation
+Reading. Duration: 30 minutes30 min
+Readiness check: Is your booking form validating user data?
+Practice Assignment. Duration: 3 minutes3 min
+Exercise: Adding unit tests for the form validation and submission
+Reading. Duration: 30 minutes30 min
+Readiness check: Did you set up the form validation and submission unit tests?
+Practice Assignment. Duration: 3 minutes3 min
+Recap: Accessibility
+Reading. Duration: 15 minutes15 min
+Exercise: Ensuring your application is accessible to users
+Reading. Duration: 30 minutes30 min
+Readiness check: Is your application accessible?
+Practice Assignment. Duration: 3 minutes3 min
+Recap: UX and UI usability evaluation
+Reading. Duration: 15 minutes15 min
+Exercise: Evaluating and revising the UX
+Reading. Duration: 30 minutes30 min
+Readiness check: Have you completed the heuristics usability evaluation?
+Practice Assignment. Duration: 3 minutes3 min
+Readiness check: Did you commit your progress to Git?
+Practice Assignment. Duration: 3 minutes3 min
+Knowledge check: Improving the experience
+Practice Assignment. Duration: 15 minutes15 min
+Module summary: Project functionality
+Video. Duration: 3 minutes3 min
+Module Quiz: Project Functionality
+Graded AssignmentGrade: 98%
+Additional resources
+Reading. Duration: 5 minutes5 min
+Course recap: Capstone Project
+Video. Duration: 3 minutes3 min
+About the final project assessment
+Reading. Duration: 15 minutes15 min
+Readiness check: Prepare to submit the project
+Practice Assignment. Duration: 30 minutes30 min
+Booking a table on the Little Lemon website
+Peer-graded Assignment. Duration: 1 hour1h
+Booking a table on the Little Lemon website
+Review Your Peers
+Solution: Booking a table on the Little Lemon website
+Reading. Duration: 30 minutes30 min
+Final Graded Quiz
+Graded Assignment. Duration: 2 hours 30 minutes2h 30m
+Congratulations, you have completed the Capstone Project!
+Video. Duration: 3 minutes3 min
+Reflect on learning
+Discussion Prompt. Duration: 10 minutes10 min
+Next steps
+Reading. Duration: 5 minutes5 min
+Final Graded Quiz
+Ready to review what you’ve learned before starting the assignment? I’m here to help.
+
+Assignment details
+Due
+November 8, 11:59 PM ISTNov 8, 11:59 PM IST
+
+Attempts
+2 left (3 attempts every 24 hours)
+
+Time limit
+01:59:55 remaining
+Time remaining: 1 hour, 59 minutes, and 55 seconds
+
+Submissions
+1 left (1 total within the time limit)
+
+Your grade
+You haven't submitted this yet. We keep your highest score.
+
+--Not available
+
+Final Graded Quiz
+Graded Assignment • 2h 30m
+
+DueNov 8, 11:59 PM IST
+01:59:55 remaining
+Time remaining: 1 hour, 59 minutes, and 55 seconds
+Information:If you don’t submit before the timer runs out, your work will be automatically submitted for grading.
+1.
+Question 1
+What type of selector is used in the following CSS rule?
+
+.footer { width: 100%; } 
+
+   gimme correct option number
+
+The class selector
+
+
+
+The id selector
+
+
+
+The element selector
+
+
+1 point
+2.
+Question 2
+Which of the following array methods can you use to add a new item to the end of an array?
+
+   gimme correct option number
+
+push()
+
+
+
+arrayBuilder()
+
+
+
+pop()
+
+
+1 point
+3.
+Question 3
+True or False: When creating a new branch using the git branch command, that branch is only available to other developers once the branch is pushed to the remote repository.
+
+   gimme correct option number
+
+True
+
+
+
+False
+
+
+1 point
+4.
+Question 4
+Which of the following are rules from Shneiderman’s 8 Golden Rules of UI Design? Select all that apply. 
+
+   gimme correct option number
+
+Offer simple error handling. 
+
+
+
+Help and documentation.
+
+
+
+Offer informative feedback. 
+
+
+
+Strive for consistency.
+
+
+1 point
+5.
+Question 5
+What is the purpose of Semantic HTML?
+
+   gimme correct option number
+
+Semantic HTML is a way to describe the meaning of your web page through specific tags.
+
+
+
+Semantic HTML is used to describe information about the webpage.
+
+
+
+Semantic HTML creates a generic container-like structure to group related content together. 
+
+
+1 point
+6.
+Question 6
+What is the very first step when creating a wireframe in Figma? 
+
+   gimme correct option number
+
+Gather requirements 
+
+
+
+Create a grid 
+
+
+
+Create a frame 
+
+
+1 point
+7.
+Question 7
+Which command is used to create a local copy of a remote Git repository? 
+
+   gimme correct option number
+
+git fetch
+
+
+
+git clone
+
+
+
+git init
+
+
+
+git pull
+
+
+1 point
+8.
+Question 8
+True or False: Open graph tags are required to create a valid HTML document.
+
+   gimme correct option number
+
+True
+
+
+
+False
+
+
+1 point
+9.
+Question 9
+Fill in the blank: React has at least one component known as the __________ component.
+
+   gimme correct option number
+
+Top
+
+
+
+Origin
+
+
+
+Root
+
+
+1 point
+10.
+Question 10
+Which of the following hooks can be used to track state in a React app? Select all that apply.
+
+   gimme correct option number
+
+useEffect
+
+
+
+useState
+
+
+
+useReducer
+
+
+1 point
+11.
+Question 11
+True or False: It is essential to provide a unique key for each list item when rendering a list in React.
+
+   gimme correct option number
+
+True
+
+
+
+False
+
+
+1 point
+12.
+Question 12
+Which of the following statements about CSS grids are true? Select all that apply. 
+
+   gimme correct option number
+
+CSS grids are created using the float property.
+
+
+
+CSS grids can be used to create flexible layouts.
+
+
+
+CSS grids are created using the display property with a value of grid.
+
+
+
+CSS grids can be used to create inline-block elements.
+
+
+1 point
+13.
+Question 13
+At which stage of the UX design process are ideas and solutions generated for the identified problem?
+
+   gimme correct option number
+
+Ideation
+
+
+
+Empathize
+
+
+
+Prototype
+
+
+
+Test and Build
+
+
+1 point
+14.
+Question 14
+Which one of the following is a valid object in JavaScript?
+
+   gimme correct option number
+
+var anObject = new Object[ ‘car’ : ‘ford’ ];
+
+
+
+var anObject = { ‘car’: ‘ford’ };
+
+
+
+var anObject = ‘car’: ‘ford’;
+
+
+
+var anObject = [ ‘car’: ‘ford’ ];
+
+
+1 point
+15.
+Question 15
+What is wrong with the following code?
+
+123456
+var bee = {};
+bee.rank = 'worker';
+bee.ageInDays = 10;
+bee.buzz = { console.log('buzz') }
+bee.buzz();
+
+
+   gimme correct option number
+
+The object properties cannot be defined using dot notation.
+
+
+
+The function has not been declared with function().
+
+
+
+There is a missing semicolon in the bee.buzz declaration.
+
+
+
+The ageInDays property should be a string.
+
+
+1 point
+16.
+Question 16
+What is the purpose of the typeof() function?
+
+   gimme correct option number
+
+To cast a variable to a different type.
+
+
+
+To return true if a variable matches the data type of the second argument passed into it.
+
+
+
+To check the type of a variable.
+
+
+1 point
+17.
+Question 17
+In programming, which paradigm groups data and functionality as properties and methods?
+
+   gimme correct option number
+
+Imperative programming
+
+
+
+Functional programming
+
+
+
+Object-oriented programming
+
+
+
+Declarative programming
+
+
+1 point
+18.
+Question 18
+What will be the output of the following code?
+
+123
+console.log(rabbit);
+let rabbit = 'Thumper';
+
+
+   gimme correct option number
+
+Uncaught ReferenceError
+
+
+
+null
+
+
+
+'Thumper'
+
+
+
+undefined
+
+
+1 point
+19.
+Question 19
+What is wrong with the following code?
+
+1234567
+var house = {
+  doors: 8,
+  garage: 'Yes'
+}
+
+console.log(Object.keys(house));
+
+
+   gimme correct option number
+
+[ 'doors', 'garage' ]
+
+
+
+{ 'doors', 'garage' }
+
+
+
+undefined
+
+
+
+'doors'
+
+'garage'
+
+
+1 point
+20.
+Question 20
+Which type of component lets the DOM maintain its internal state?
+
+   gimme correct option number
+
+HTML component
+
+
+
+Formatted component
+
+
+
+Controlled component
+
+
+
+Uncontrolled component
+
+
+1 point
+21.
+Question 21
+In React, which hook is available that guarantees object references do not change during re-rendering?
+
+   gimme correct option number
+
+useMemo
+
+
+
+useEffect
+
+
+
+useState
+
+
+
+useMemory
+
+
+1 point
+22.
+Question 22
+In React, when would you want to write your own custom hook instead of using one already built-in?
+
+   gimme correct option number
+
+When you want to reuse a piece of functionality.
+
+
+
+When you face errors using the built-in hooks.
+
+
+
+You should not write your own custom hooks.
+
+
+
+To rename one of the built-in hooks.
+
+
+1 point
+23.
+Question 23
+What does the justify alignment property do in CSS?
+
+   gimme correct option number
+
+Ensures that all text is aligned in the center.
+
+
+
+Spreads the text out and ensures every line is the same width.
+
+
+
+Puts even spacing between each character on every line.
+
+
+
+Spreads the text out so that each line will form what looks like stairs.
+
+
+1 point
+24.
+Question 24
+Which one of the following is true about inline elements?
+
+   gimme correct option number
+
+They appear on a new line.
+
+
+
+They only occupy the width and height of their content.
+
+
+
+They occupy the full width of the parent element.
+
+
+
+They occupy the full height of the parent element.
+
+
+1 point
+25.
+Question 25
+Which one of the following internet protocols lets your computer know which IP to communicate with when visiting websites?
+
+   gimme correct option number
+
+Post Office Protocol (POP)
+
+
+
+Domain Name System Protocol (DNS)
+
+
+
+Simple Mail Transfer Protocol (SMTP)
+
+
+
+File Transfer Protocol (FTP)
+
+
+1 point
+26.
+Question 26
+One of the design element principles is balance, what is this principle concerned with?
+
+   gimme correct option number
+
+Using color to create moods and atmosphere.
+
+
+
+The space between elements that forms its own shape.
+
+
+
+Adding depth and effects to a design.
+
+
+
+Ensuring no element empowers another.
+
+
+1 point
+27.
+Question 27
+Fill in the blank: In design systems, ______ are the building instructions that allow you to use components logically and consistently across all products.
+
+   gimme correct option number
+
+principles
+
+
+
+patterns
+
+
+
+components
+
+
+
+assets
+
+
+1 point
+28.
+Question 28
+Fill in the blank: React components return JSX expressions. In these expressions, the content between an opening and closing tag is passed as a unique prop called ______.
+
+   gimme correct option number
+
+children
+
+
+
+parents
+
+
+
+element
+
+
+
+component
+
+
+1 point
+29.
+Question 29
+What happens if a script fails during the Continuous Integration (CI) process?
+
+   gimme correct option number
+
+The process will retry a finite amount of times until it crashes.
+
+
+
+A report is sent to developers and the process stops.
+
+
+
+The failing script is skipped and the process continues.
+
+
+
+The process continues until a developer intervenes.
+
+
+1 point
+30.
+Question 30
+In React, hooks should follow certain rules so as to not make your code invalid. Which one of the following is one such rule that should be followed?
+
+   gimme correct option number
+
+Make multiple hook calls in different sequences.
+
+
+
+Cannot call multiple state or effect hooks inside a component.
+
+
+
+Only call hooks at the top level of a React component function.
+
+
+
+Hooks should not be called from a React component function.
+
+
+1 point
+Coursera Honor Code  Learn more
+I, Georgy Binu, understand that submitting work that isn’t my own may result in permanent failure of this course or deactivation of my Coursera account.*
+You must select the checkbox in order to submit the assignment
+Last saved on Oct 30, 7:06 PM IST
+
