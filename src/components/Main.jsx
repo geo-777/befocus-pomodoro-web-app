@@ -1,5 +1,5 @@
-import { Settings, Plus, RotateCcw, Play } from "lucide-react";
-import { useState, useEffect } from "react";
+import { Settings, Plus, RotateCcw, Play, Pause } from "lucide-react";
+import { useState, useEffect, useRef } from "react";
 import TodoItem from "./TodoItem";
 const Main = () => {
   const [listPriority, setlistPriority] = useState("medium");
@@ -51,21 +51,67 @@ const Main = () => {
     break: "Break",
     longBreak: "Long Break",
   };
+
+  // timer logic
+  const [isTimerRunning, setIsTimerRunning] = useState(false);
+
+  const timerId = useRef(null);
+  const [defaultPomSettings, setDefaultPom] = useState({
+    focus: "25 : 00",
+    break: "05 : 00",
+    longBreak: "15 : 00",
+  });
+  const [pomoTimer, setPomoTimer] = useState(defaultPomSettings[timerMode]);
+
+  useEffect(() => {
+    if (isTimerRunning) {
+      timerId.current = setInterval(() => {
+        setPomoTimer((prev) => {
+          const [m, s] = prev.trim().split(":").map(Number);
+          let totalSeconds = m * 60 + s - 1;
+
+          if (totalSeconds < 0) {
+            clearInterval(timerId.current);
+            setIsTimerRunning(false);
+            return "00 : 00";
+          }
+
+          const min = String(Math.floor(totalSeconds / 60)).padStart(2, "0");
+          const sec = String(totalSeconds % 60).padStart(2, "0");
+          return `${min} : ${sec}`;
+        });
+      }, 1000);
+    } else {
+      clearInterval(timerId.current);
+    }
+
+    return () => clearInterval(timerId.current);
+  }, [isTimerRunning]);
+
+  function handleTimerStartBtnClickEvent() {
+    if (pomoTimer != "00 : 00") setIsTimerRunning((prev) => !prev);
+  }
+
   return (
     <main className="main-container">
       <div className="pomodoro-container main-grid-item">
         <div className="pomo-header-container">
           <div className="pomo-buttons">
-            {/* <h4 className="pomo-btn-item">Focus</h4>
-            <h4 className="pomo-btn-item">Break</h4>
-            <h4 className="pomo-btn-item">Long Break</h4> */}
             {["focus", "break", "longBreak"].map((elem) => {
               return (
                 <h4
+                  key={elem}
                   className={`pomo-btn-item ${
                     elem === timerMode ? "pomo-btn-item-active" : ""
                   }`}
-                  onClick={() => setTimerMode(elem)}
+                  onClick={() => {
+                    setTimerMode(elem);
+
+                    if (elem !== timerMode) {
+                      setIsTimerRunning(false);
+                      setPomoTimer(defaultPomSettings[elem]);
+                    }
+                  }}
                 >
                   {AllTimerModes[elem]}
                 </h4>
@@ -79,15 +125,32 @@ const Main = () => {
 
         <div className="flex-container-for-pomo">
           <div className="pomo-timer-container">
-            <h4 className="pomo-timer">25:00</h4>
+            <h4 className="pomo-timer">{pomoTimer}</h4>
             <p>{AllTimerModes[timerMode]}</p>
           </div>
 
           <div className="pomo-controls">
-            <button className="start-btn pomo-ctrl-btn">
-              <Play strokeWidth={2.5} size={18} /> Start
+            <button
+              className={`start-btn pomo-ctrl-btn ${
+                isTimerRunning ? "pause-timer-mode" : ""
+              }`}
+              onClick={handleTimerStartBtnClickEvent}
+            >
+              {isTimerRunning ? (
+                <Pause strokeWidth={2.5} size={18} />
+              ) : (
+                <Play strokeWidth={2.5} size={18} />
+              )}
+              <span>{isTimerRunning ? "Pause" : "Start"}</span>
             </button>
-            <button className="reset-btn pomo-ctrl-btn">
+            <button
+              className="reset-btn pomo-ctrl-btn"
+              onClick={() => {
+                clearInterval(timerId.current);
+                setIsTimerRunning(false);
+                setPomoTimer(defaultPomSettings[timerMode]);
+              }}
+            >
               <RotateCcw strokeWidth={1.5} />
             </button>
           </div>
