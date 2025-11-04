@@ -53,16 +53,91 @@ body {
   backdrop-filter: blur(4px); /* optional – adds background blur */
   z-index: 999; /* sits above the page but below the modal */
 }
-
+.settings-header {
+  display: flex;
+  justify-content: space-between;
+}
+.settings-header h3 {
+  color: var(--main-text);
+  font-size: 17px;
+  font-weight: 500;
+}
+.settings-header p {
+  color: var(--muted-text);
+  font-size: 14px;
+}
+.x-btn {
+  color: var(--muted-text);
+}
+.x-btn:hover {
+  cursor: pointer;
+}
+.settings-submit-btn-item {
+  padding: 0.6rem 1rem;
+  border-radius: 1rem;
+  border: none;
+  background-color: var(--main-bg);
+  color: var(--main-text);
+  font-weight: 500;
+}
+.settings-submit-btn-item:hover {
+  cursor: pointer;
+  transition: 0.3s;
+  opacity: 0.6;
+}
+.settings-header {
+  margin-bottom: 1rem;
+}
+.save {
+  color: var(--light-fg);
+  background-color: var(--ring);
+}
+.settings-submit-btn-container {
+  margin-top: 2rem;
+  display: flex;
+  gap: 0.5rem;
+  justify-content: flex-end;
+}
+.settings-form-item p {
+  color: var(--main-text);
+  font-size: 14px;
+}
+.settings-form-item {
+  display: flex;
+  flex-direction: column;
+  gap: 0.7rem;
+}
+.settings-form-item div {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+}
+.settings-form-item input {
+  width: 20%;
+  border-radius: 1rem;
+  padding: 0.5rem 1rem;
+  outline: none;
+  border: 1px solid var(--muted-bg);
+}
+.settings-form-item div p {
+  color: var(--muted-text);
+  font-size: 12px;
+}
 .settings-window {
+  margin: 0;
   position: absolute;
   top: 50%;
   left: 50%;
+  min-width: 500px;
+  min-height: 450px;
   transform: translate(-50%, -50%);
-  background: white;
+  background: var(--light-fg);
   border-radius: 1rem;
-  padding: 2rem;
+  padding: 1.3rem 1.5rem;
   z-index: 1000; /* above overlay */
+  display: flex;
+  flex-direction: column;
+  gap: 1.3rem;
 }
 
 nav {
@@ -459,3 +534,29 @@ nav {
   background-color: var(--stop-btn);
   color: var(--light-fg);
 }
+@media (max-width: 500px) {
+  .settings-window {
+    min-width: fit-content;
+    width: 100%;
+    border-radius: 0;
+  }
+  .settings-form-item input {
+    width: 30%;
+  }
+}
+
+.hidden {
+  display: none;
+}
+/* @keyframes scaleup {
+  0% {
+    transform: scale(0);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+.zoom-animation {
+  transform-origin: center;
+  animation: scaleup 0.2s ease-in;
+} */

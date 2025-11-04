@@ -1,6 +1,7 @@
 import { Settings, Plus, RotateCcw, Play, Pause } from "lucide-react";
 import { useState, useEffect, useRef } from "react";
 import TodoItem from "./TodoItem";
+import PomSettings from "./PomSettings";
 const Main = () => {
   const [listPriority, setlistPriority] = useState("medium");
   const priorityClasses = {
@@ -92,145 +93,194 @@ const Main = () => {
     if (pomoTimer != "00 : 00") setIsTimerRunning((prev) => !prev);
   }
 
+  //settings window logic
+  const [isSettingsShown, setIsSettingsShown] = useState(false);
+  useEffect(() => {
+    setPomoTimer(defaultPomSettings[timerMode]);
+  }, [defaultPomSettings]);
   return (
-    <main className="main-container">
-      <div className="pomodoro-container main-grid-item">
-        <div className="pomo-header-container">
-          <div className="pomo-buttons">
-            {["focus", "break", "longBreak"].map((elem) => {
+    <>
+      {isSettingsShown ? (
+        <PomSettings
+          isVisible={isSettingsShown}
+          visibilityHandler={setIsSettingsShown}
+          settings={defaultPomSettings}
+          setter={setDefaultPom}
+        />
+      ) : null}{" "}
+      <div className={`modal-overlay ${isSettingsShown ? "" : "hidden"}`}></div>
+      <main className="main-container ">
+        <div className="pomodoro-container main-grid-item">
+          <div className="pomo-header-container">
+            <div className="pomo-buttons">
+              {["focus", "break", "longBreak"].map((elem) => {
+                return (
+                  <h4
+                    key={elem}
+                    className={`pomo-btn-item ${
+                      elem === timerMode ? "pomo-btn-item-active" : ""
+                    }`}
+                    onClick={() => {
+                      setTimerMode(elem);
+
+                      if (elem !== timerMode) {
+                        setIsTimerRunning(false);
+                        setPomoTimer(defaultPomSettings[elem]);
+                      }
+                    }}
+                  >
+                    {AllTimerModes[elem]}
+                  </h4>
+                );
+              })}
+            </div>
+            <button className="pomo-settings">
+              <Settings
+                strokeWidth={2.25}
+                size={16}
+                onClick={() => {
+                  setIsTimerRunning(false);
+                  setIsSettingsShown((prev) => !prev);
+                }}
+              />
+            </button>
+          </div>
+
+          <div className="flex-container-for-pomo">
+            <div className="pomo-timer-container">
+              <h4 className="pomo-timer">{pomoTimer}</h4>
+              <p>{AllTimerModes[timerMode]}</p>
+            </div>
+
+            <div className="pomo-controls">
+              <button
+                className={`start-btn pomo-ctrl-btn ${
+                  isTimerRunning ? "pause-timer-mode" : ""
+                }`}
+                onClick={handleTimerStartBtnClickEvent}
+              >
+                {isTimerRunning ? (
+                  <Pause strokeWidth={2.5} size={18} />
+                ) : (
+                  <Play strokeWidth={2.5} size={18} />
+                )}
+                <span>{isTimerRunning ? "Pause" : "Start"}</span>
+              </button>
+              <button
+                className="reset-btn pomo-ctrl-btn"
+                onClick={() => {
+                  clearInterval(timerId.current);
+                  setIsTimerRunning(false);
+                  setPomoTimer(defaultPomSettings[timerMode]);
+                }}
+              >
+                <RotateCcw strokeWidth={1.5} />
+              </button>
+            </div>
+          </div>
+        </div>
+        <div className="todo-container main-grid-item">
+          <div className="todo-heading">
+            <div>
+              <h2>Tasks </h2>
+              <p>
+                {completedTasks} of {totalTasks.length} tasks completed
+              </p>
+            </div>
+            <div className="progress-bar">
+              <div
+                style={{
+                  width:
+                    totalTasks.length === 0
+                      ? "0%"
+                      : `${(completedTasks / totalTasks.length) * 100}%`,
+                }}
+              ></div>
+            </div>
+          </div>
+          <div className="todo-inputter">
+            <input
+              value={taskInput}
+              onChange={handleTaskInput}
+              onKeyDown={(e) => {
+                if (e.key === "Enter") {
+                  handleAddBtnClick();
+                }
+              }}
+              type="text"
+              placeholder="Add a new task..."
+            />
+            <button onClick={handleAddBtnClick}>
+              <Plus strokeWidth={2.25} size={16} />{" "}
+            </button>
+          </div>
+          <div className="todo-priority-container">
+            {["low", "medium", "high"].map((priority) => {
               return (
                 <h4
-                  key={elem}
-                  className={`pomo-btn-item ${
-                    elem === timerMode ? "pomo-btn-item-active" : ""
+                  key={priority}
+                  className={`todo-priority-item ${
+                    listPriority === priority ? priorityClasses[priority] : ""
                   }`}
-                  onClick={() => {
-                    setTimerMode(elem);
-
-                    if (elem !== timerMode) {
-                      setIsTimerRunning(false);
-                      setPomoTimer(defaultPomSettings[elem]);
-                    }
-                  }}
+                  onClick={() => setlistPriority(priority)}
                 >
-                  {AllTimerModes[elem]}
+                  {priority}
                 </h4>
               );
             })}
           </div>
-          <button className="pomo-settings">
-            <Settings strokeWidth={2.25} size={16} />
-          </button>
-        </div>
-
-        <div className="flex-container-for-pomo">
-          <div className="pomo-timer-container">
-            <h4 className="pomo-timer">{pomoTimer}</h4>
-            <p>{AllTimerModes[timerMode]}</p>
+          <div className="todo-filter-btns">
+            {["All", "Active", "Completed"].map((elem) => {
+              return (
+                <h4
+                  key={elem.toLowerCase()}
+                  className={`todo-filter-btn-item ${
+                    elem === filter ? "filter-active" : ""
+                  }`}
+                  onClick={() => setFilter(elem)}
+                >
+                  {elem}
+                </h4>
+              );
+            })}
           </div>
-
-          <div className="pomo-controls">
-            <button
-              className={`start-btn pomo-ctrl-btn ${
-                isTimerRunning ? "pause-timer-mode" : ""
-              }`}
-              onClick={handleTimerStartBtnClickEvent}
-            >
-              {isTimerRunning ? (
-                <Pause strokeWidth={2.5} size={18} />
-              ) : (
-                <Play strokeWidth={2.5} size={18} />
-              )}
-              <span>{isTimerRunning ? "Pause" : "Start"}</span>
-            </button>
-            <button
-              className="reset-btn pomo-ctrl-btn"
-              onClick={() => {
-                clearInterval(timerId.current);
-                setIsTimerRunning(false);
-                setPomoTimer(defaultPomSettings[timerMode]);
-              }}
-            >
-              <RotateCcw strokeWidth={1.5} />
-            </button>
-          </div>
-        </div>
-      </div>
-      <div className="todo-container main-grid-item">
-        <div className="todo-heading">
-          <div>
-            <h2>Tasks </h2>
-            <p>
-              {completedTasks} of {totalTasks.length} tasks completed
-            </p>
-          </div>
-          <div className="progress-bar">
-            <div
-              style={{
-                width:
-                  totalTasks.length === 0
-                    ? "0%"
-                    : `${(completedTasks / totalTasks.length) * 100}%`,
-              }}
-            ></div>
-          </div>
-        </div>
-        <div className="todo-inputter">
-          <input
-            value={taskInput}
-            onChange={handleTaskInput}
-            onKeyDown={(e) => {
-              if (e.key === "Enter") {
-                handleAddBtnClick();
-              }
-            }}
-            type="text"
-            placeholder="Add a new task..."
-          />
-          <button onClick={handleAddBtnClick}>
-            <Plus strokeWidth={2.25} size={16} />{" "}
-          </button>
-        </div>
-        <div className="todo-priority-container">
-          {["low", "medium", "high"].map((priority) => {
-            return (
-              <h4
-                key={priority}
-                className={`todo-priority-item ${
-                  listPriority === priority ? priorityClasses[priority] : ""
-                }`}
-                onClick={() => setlistPriority(priority)}
-              >
-                {priority}
-              </h4>
-            );
-          })}
-        </div>
-        <div className="todo-filter-btns">
-          {["All", "Active", "Completed"].map((elem) => {
-            return (
-              <h4
-                key={elem.toLowerCase()}
-                className={`todo-filter-btn-item ${
-                  elem === filter ? "filter-active" : ""
-                }`}
-                onClick={() => setFilter(elem)}
-              >
-                {elem}
-              </h4>
-            );
-          })}
-        </div>
-        <div className="todo-list">
-          {totalTasks.length === 0 ? (
-            <>
-              <p className="no-tasks-msg">No tasks yet. Add one above!</p>
-            </>
-          ) : (
-            totalTasks.map((elem, i) => {
-              //console.log(filter.toLowerCase() == "active");
-              if (filter.toLowerCase() == "active") {
-                if (elem[2] === false) {
+          <div className="todo-list">
+            {totalTasks.length === 0 ? (
+              <>
+                <p className="no-tasks-msg">No tasks yet. Add one above!</p>
+              </>
+            ) : (
+              totalTasks.map((elem, i) => {
+                //console.log(filter.toLowerCase() == "active");
+                if (filter.toLowerCase() == "active") {
+                  if (elem[2] === false) {
+                    return (
+                      <TodoItem
+                        key={i}
+                        task={elem[0]}
+                        isCompleted={elem[2]}
+                        priority={elem[1]}
+                        totalTasks={totalTasks}
+                        handleNewTask={setTotalTasks}
+                        index={i}
+                      ></TodoItem>
+                    );
+                  }
+                } else if (filter.toLowerCase() == "completed") {
+                  if (elem[2] === true) {
+                    return (
+                      <TodoItem
+                        key={i}
+                        task={elem[0]}
+                        isCompleted={elem[2]}
+                        priority={elem[1]}
+                        totalTasks={totalTasks}
+                        handleNewTask={setTotalTasks}
+                        index={i}
+                      ></TodoItem>
+                    );
+                  }
+                } else {
                   return (
                     <TodoItem
                       key={i}
@@ -243,38 +293,12 @@ const Main = () => {
                     ></TodoItem>
                   );
                 }
-              } else if (filter.toLowerCase() == "completed") {
-                if (elem[2] === true) {
-                  return (
-                    <TodoItem
-                      key={i}
-                      task={elem[0]}
-                      isCompleted={elem[2]}
-                      priority={elem[1]}
-                      totalTasks={totalTasks}
-                      handleNewTask={setTotalTasks}
-                      index={i}
-                    ></TodoItem>
-                  );
-                }
-              } else {
-                return (
-                  <TodoItem
-                    key={i}
-                    task={elem[0]}
-                    isCompleted={elem[2]}
-                    priority={elem[1]}
-                    totalTasks={totalTasks}
-                    handleNewTask={setTotalTasks}
-                    index={i}
-                  ></TodoItem>
-                );
-              }
-            })
-          )}
+              })
+            )}
+          </div>
         </div>
-      </div>
-    </main>
+      </main>
+    </>
   );
 };
 
