@@ -34,6 +34,7 @@
   --shadow-elevated: 0 12px 40px hsla(240, 15%, 30%, 0.15);
   --shadow-glow: 0 0 40px hsla(var(--primary), 0.3);
 }
+
 body {
   padding-inline: clamp(0.5rem, 4vw, 10rem);
   background-color: var(--main-bg);

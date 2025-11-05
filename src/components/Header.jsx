@@ -1,7 +1,7 @@
 import { Calendar, SunMedium } from "lucide-react";
 import { useState, useEffect } from "react";
 
-const Header = () => {
+const Header = ({ themeSetter, currTheme }) => {
   const [time, setTime] = useState(new Date());
 
   useEffect(() => {
@@ -34,9 +34,6 @@ const Header = () => {
           <h3>BeFocus</h3>
           <p>Stay productive, stay focused</p>
         </div>
-        <button className="theme-switcher">
-          <SunMedium strokeWidth={1.5} size={24} />
-        </button>
       </div>
     </nav>
   );

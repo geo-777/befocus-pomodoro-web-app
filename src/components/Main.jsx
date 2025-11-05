@@ -10,8 +10,6 @@ const Main = () => {
     high: "high-priority",
   };
 
-  //console.log(tasks);
-
   const [totalTasks, setTotalTasks] = useState(() => {
     let tasks = JSON.parse(localStorage.getItem("tasks")) || [];
     return tasks;
@@ -35,7 +33,6 @@ const Main = () => {
   useEffect(() => {
     setCompletedTasks(0);
     let comptask = 0;
-    console.log("Updated totalTasks:", totalTasks);
     totalTasks.forEach((elm) => {
       if (elm[2] === true) {
         comptask++;
@@ -79,7 +76,6 @@ const Main = () => {
   useEffect(() => {
     localStorage.setItem("settings", JSON.stringify(defaultPomSettings));
   }, [defaultPomSettings]);
-  console.log("Initial pomoTimer:", defaultPomSettings[timerMode]);
 
   const [pomoTimer, setPomoTimer] = useState(defaultPomSettings[timerMode]);
 
@@ -270,7 +266,7 @@ const Main = () => {
               </>
             ) : (
               totalTasks.map((elem, i) => {
-                //console.log(filter.toLowerCase() == "active");
+                // log(filter.toLowerCase() == "active");
                 if (filter.toLowerCase() == "active") {
                   if (elem[2] === false) {
                     return (

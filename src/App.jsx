@@ -4,11 +4,11 @@ import Boxes from "./components/Boxes";
 import Main from "./components/Main";
 function App() {
   return (
-    <>
-      <Header> </Header>
+    <div>
+      <Header></Header>
       <Boxes></Boxes>
       <Main></Main>
-    </>
+    </div>
   );
 }
 
