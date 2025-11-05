@@ -57,11 +57,30 @@ const Main = () => {
   const [isTimerRunning, setIsTimerRunning] = useState(false);
 
   const timerId = useRef(null);
-  const [defaultPomSettings, setDefaultPom] = useState({
-    focus: "25 : 00",
-    break: "05 : 00",
-    longBreak: "15 : 00",
+  const [defaultPomSettings, setDefaultPom] = useState(() => {
+    try {
+      const saved = JSON.parse(localStorage.getItem("settings"));
+      return saved && saved.focus && saved.break && saved.longBreak
+        ? saved
+        : {
+            focus: "25 : 00",
+            break: "05 : 00",
+            longBreak: "15 : 00",
+          };
+    } catch {
+      return {
+        focus: "25 : 00",
+        break: "05 : 00",
+        longBreak: "15 : 00",
+      };
+    }
   });
+
+  useEffect(() => {
+    localStorage.setItem("settings", JSON.stringify(defaultPomSettings));
+  }, [defaultPomSettings]);
+  console.log("Initial pomoTimer:", defaultPomSettings[timerMode]);
+
   const [pomoTimer, setPomoTimer] = useState(defaultPomSettings[timerMode]);
 
   useEffect(() => {
