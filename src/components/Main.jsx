@@ -2,7 +2,7 @@ import { Settings, Plus, RotateCcw, Play, Pause } from "lucide-react";
 import { useState, useEffect, useRef } from "react";
 import TodoItem from "./TodoItem";
 import PomSettings from "./PomSettings";
-const Main = () => {
+const Main = ({ statsSetter, stats }) => {
   const [listPriority, setlistPriority] = useState("medium");
   const priorityClasses = {
     low: "low-priority",
@@ -24,20 +24,29 @@ const Main = () => {
   function handleAddBtnClick(e) {
     if (taskInput) {
       let newTask = [...totalTasks];
-      newTask.push([taskInput, listPriority, false]); //false here is an answer for isCompleted?
+      newTask.push([taskInput, listPriority, false, Date.now()]); //false here is an answer for isCompleted?
       setTotalTasks(newTask);
       setTaskInput("");
     }
   }
   let [completedTasks, setCompletedTasks] = useState(0);
   useEffect(() => {
+    let tempStats = {
+      ...stats,
+      alreadyIn: [...stats.alreadyIn],
+    };
     setCompletedTasks(0);
     let comptask = 0;
     totalTasks.forEach((elm) => {
       if (elm[2] === true) {
         comptask++;
+        if (!tempStats.alreadyIn.includes(elm[3])) {
+          tempStats.tasks += 1;
+          tempStats.alreadyIn.push(elm[3]);
+        }
       }
     });
+    statsSetter(tempStats);
     setCompletedTasks(comptask);
     localStorage.setItem("tasks", JSON.stringify(totalTasks));
   }, [totalTasks]);
@@ -87,7 +96,18 @@ const Main = () => {
           let totalSeconds = m * 60 + s - 1;
 
           if (totalSeconds < 0) {
+            let statsTemp = { ...stats }; //temp variable
             clearInterval(timerId.current);
+            if (timerMode == "focus") {
+              statsTemp.sessions += 1;
+              statsTemp.focus += Number(
+                defaultPomSettings[timerMode].split(":")[0]
+              );
+            } else if (timerMode == "break" || timerMode == "longbreak") {
+              statsTemp.break += 1;
+            }
+
+            statsSetter(statsTemp);
             setIsTimerRunning(false);
             return "00 : 00";
           }

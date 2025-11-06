@@ -1,6 +1,6 @@
 import { LocateFixed, Clock, Coffee, ChartNoAxesCombined } from "lucide-react";
 
-const Boxes = () => {
+const Boxes = ({ stats }) => {
   return (
     <div className="box-container">
       <div className="item focus">
@@ -10,7 +10,7 @@ const Boxes = () => {
 
         <div className="item-info">
           <p>Focus sessions</p>
-          <h5>0 </h5>
+          <h5>{stats.sessions} </h5>
         </div>
       </div>
 
@@ -21,7 +21,7 @@ const Boxes = () => {
 
         <div className="item-info">
           <p>Focus time</p>
-          <h5>0m </h5>
+          <h5>{stats.focus}m </h5>
         </div>
       </div>
 
@@ -32,7 +32,7 @@ const Boxes = () => {
 
         <div className="item-info">
           <p>Breaks taken</p>
-          <h5>0 </h5>
+          <h5>{stats.break} </h5>
         </div>
       </div>
 
@@ -43,7 +43,7 @@ const Boxes = () => {
 
         <div className="item-info">
           <p>Tasks done</p>
-          <h5>0 </h5>
+          <h5>{stats.tasks} </h5>
         </div>
       </div>
     </div>
