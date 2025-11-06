@@ -23,6 +23,13 @@ function App() {
       <Header></Header>
       <Boxes stats={stats}></Boxes>
       <Main statsSetter={setStats} stats={stats}></Main>
+      <footer>
+        <p>
+          Designed by{" "}
+          <a href="https://www.linkedin.com/in/samdanielraj/">Sam Daniel Raj</a>
+          . Recreated by me
+        </p>
+      </footer>
     </div>
   );
 }

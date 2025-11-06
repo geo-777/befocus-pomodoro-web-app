@@ -1,16 +1,47 @@
-# React + Vite
+# BeFocus – Pomodoro + Todo App
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This is a small project I built based on a design by [Sam Daniel Raj](https://www.behance.net/SamDanielRaj).  
+The original app is [befocus.online](https://befocus.online).  
+I recreated it from scratch using React as a way to practice and learn.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🕒 About the Project
 
-## React Compiler
+BeFocus is a simple Pomodoro timer combined with a to-do list.  
+You can:
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- Start, pause, and reset the timer
+- Switch between **Focus**, **Short Break**, and **Long Break** modes
+- Add, complete, and filter tasks
+- View a small progress bar for completed tasks
+- Change timer durations in the settings window
 
-## Expanding the ESLint configuration
+All data (tasks and settings) is stored locally using `localStorage`,  
+so everything stays saved even after a refresh or restart.
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+---
+
+## ⚙️ Built With
+
+- **React** – functional components with hooks (`useState`, `useEffect`, `useRef`)
+- **lucide-react** – for icons
+- **CSS** – for layout and styling (no frameworks)
+
+---
+
+## 💡 What I Learned
+
+While working on this, I got more comfortable with:
+
+- Managing state and props in React
+- Using intervals and cleanup functions inside `useEffect`
+- Saving and loading persistent data with `localStorage`
+- Structuring small reusable components
+
+---
+
+## 🙌 Credits
+
+Design inspired by [Sam Daniel Raj](https://www.behance.net/SamDanielRaj).  
+All code written by me, mainly for learning and practice purposes.

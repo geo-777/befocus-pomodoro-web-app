@@ -561,3 +561,13 @@ nav {
   transform-origin: center;
   animation: scaleup 0.2s ease-in;
 } */
+footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 50px;
+  width: 100%;
+}
+footer a {
+  color: var(--muted-text);
+}
